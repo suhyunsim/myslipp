@@ -11,18 +11,25 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Controller
+@RequestMapping("/users")
 public class UserController {
     private List<User> users = new ArrayList<User>();
 
-    @PostMapping("/users")
+    @GetMapping("/form")
+    public String form() {
+        return "/user/form";
+    }
+
+    @PostMapping("/create")
     public String create(User user) {
         System.out.println("user: " + user);
         users.add(user);
         return "redirect:/users/list";
     }
-    @GetMapping("/users/list")
+
+    @GetMapping("/list")
     public String list(Model model) {
         model.addAttribute("users", users);
-        return "list";
+        return "/user/list";
     }
 }
