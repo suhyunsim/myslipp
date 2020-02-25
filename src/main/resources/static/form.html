@@ -23,31 +23,32 @@
             </li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
-            <li><a href="/form.html">회원가입</a></li>
+            <li><a href="/static/form.html">회원가입</a></li>
         </ul>
     </div>
 </nav>
 <body>
 <div class="container">
     <h1>회원가입</h1>
-    <form>
+    <form action="/users" method="post">
         <div class="form-group">
-            <label for="exampleInputId">ID</label>
-            <input type="text" class="form-control" id="exampleInputId" aria-describedby="emailHelp">
+            <label for="userId">ID</label>
+            <input type="text" class="form-control" name="userId" placeholder="ID">
         </div>
         <div class="form-group">
-            <label for="exampleInputPassword">Password</label>
-            <input type="password" class="form-control" id="exampleInputPassword">
+            <label for="password">Password</label>
+            <input type="password" class="form-control" name="password" placeholder="Password">
         </div>
         <div class="form-group">
-            <label for="exampleInputName">Name</label>
-            <input type="text" class="form-control" id="exampleInputName">
+            <label for="name">Name</label>
+            <input type="text" class="form-control" name="name" placeholder="Name">
         </div>
         <div class="form-group">
-            <label for="exampleInputEmail1">Email address</label>
-            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+            <label for="email">Email address</label>
+            <input type="email" class="form-control" name="email" placeholder="Email" aria-describedby="emailHelp">
+            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
         </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn btn-default">Submit</button>
     </form>
 </div>
 <!-- Optional JavaScript -->
