@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class UserController {
 
     @PostMapping("/users")
-    public String create(String userId, String password, String name, String email) {
-        System.out.println("userId: "+ userId + " password: " + password + " name: " + name + " email: " + email);
+    public String create(User user) {
+        System.out.println("user: " + user);
         return "welcome";
     }
 }
