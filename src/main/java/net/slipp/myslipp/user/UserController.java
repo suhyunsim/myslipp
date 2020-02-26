@@ -2,10 +2,7 @@ package net.slipp.myslipp.user;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.Mapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,4 +29,18 @@ public class UserController {
         model.addAttribute("users", users);
         return "/user/list";
     }
+
+    @GetMapping("/{userId}")
+    public String profile(@PathVariable String userId, Model model) {
+        model.addAttribute("user", checkUser(userId));
+        return "/user/profile";
+    }
+    private User checkUser(String userId) {
+        for (User user : users) {
+            if (userId.equals(user.getUserId()))
+                return user;
+        }
+        return null;
+    }
 }
+
